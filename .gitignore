@@ -1,0 +1,13 @@
+# Ignorar dependências
+node_modules/
+.next/
+out/
+
+# Ignorar arquivos grandes
+*.log
+*.node
+
+# Arquivos de ambiente e sistema
+.env
+.DS_Store
+*.swp
