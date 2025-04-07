@@ -1,75 +1,49 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Twitter } from 'lucide-react'
+import Link from 'next/link'
 
-export default function Footer() {
+export function Footer() {
   return (
-    <footer className="relative z-10 w-full border-t border-white/10 bg-black/30 backdrop-blur-md">
-      {/* Glow animado no topo do footer */}
-      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-green-400/40 via-teal-500/20 to-transparent blur-sm opacity-70" />
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="w-full px-6 py-8 bg-black border-t border-green-500/20 mt-16"
+    >
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <p className="text-sm text-green-400 text-center md:text-left">
+          © {new Date().getFullYear()} Henry Security. Todos os direitos reservados.
+        </p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-7xl px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-sm text-gray-400"
-      >
-        {/* Marca */}
-        <div>
-          <h3 className="text-white text-lg font-semibold mb-2">Henry Security</h3>
-          <p className="mb-4 text-gray-500">Monitoramento inteligente de aplicações com tecnologia de ponta.</p>
-          <div className="flex gap-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-              <Github size={18} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-              <Linkedin size={18} />
-            </a>
-            <a href="mailto:contato@henrysecurity.com" className="hover:text-white transition">
-              <Mail size={18} />
-            </a>
-          </div>
+        <div className="flex space-x-6">
+          <Link
+            href="https://github.com/henrysec-bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:text-green-300 transition-colors duration-200"
+          >
+            <Github className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:text-green-300 transition-colors duration-200"
+          >
+            <Linkedin className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:text-green-300 transition-colors duration-200"
+          >
+            <Twitter className="w-5 h-5" />
+          </Link>
         </div>
-
-        {/* Produtos */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Produto</h4>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-white transition">Dashboard</a></li>
-            <li><a href="#" className="hover:text-white transition">Planos</a></li>
-            <li><a href="#" className="hover:text-white transition">Integrações</a></li>
-            <li><a href="#" className="hover:text-white transition">Segurança</a></li>
-          </ul>
-        </div>
-
-        {/* Empresa */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Empresa</h4>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-white transition">Sobre nós</a></li>
-            <li><a href="#" className="hover:text-white transition">Carreiras</a></li>
-            <li><a href="#" className="hover:text-white transition">Blog</a></li>
-            <li><a href="#" className="hover:text-white transition">Contato</a></li>
-          </ul>
-        </div>
-
-        {/* Legal */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Legal</h4>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-white transition">Política de Privacidade</a></li>
-            <li><a href="#" className="hover:text-white transition">Termos de Uso</a></li>
-            <li><a href="#" className="hover:text-white transition">Cookies</a></li>
-          </ul>
-        </div>
-      </motion.div>
-
-      {/* Rodapé final */}
-      <div className="border-t border-white/10 text-center py-6 text-xs text-gray-500">
-        © {new Date().getFullYear()} Henry Security. Todos os direitos reservados.
       </div>
-    </footer>
+    </motion.footer>
   )
 }
