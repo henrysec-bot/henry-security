@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'neon-green': '#00ff9f',
         neon: "#39ff14"
       },
       boxShadow: {
