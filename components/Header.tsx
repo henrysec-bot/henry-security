@@ -40,6 +40,9 @@ export default function Header() {
           <Link href="#pricing" className="hover:text-white transition">Planos</Link>
           <Link href="#about" className="hover:text-white transition">Sobre</Link>
           <Link href="#contact" className="hover:text-white transition">Contato</Link>
+          <Link
+  href="/login"
+  className="text-sm font-semibold text-neon-green hover:text-white transition-colors duration-200">Entrar</Link>
         </nav>
 
         {/* Mobile button */}
