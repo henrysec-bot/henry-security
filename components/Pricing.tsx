@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { cn } from "@/components/lib/utils";
+import { cn } from '@/lib/utils'
 
 const plans = [
   {
