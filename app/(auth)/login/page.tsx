@@ -99,13 +99,20 @@ export default function LoginPage() {
             Entrar com Google
           </Button>
         </div>
+        <div className="text-sm text-center text-neutral-400">
+  <Link href="/forgot-password" className="text-green-400 hover:underline">
+    Esqueceu sua senha?
+  </Link>
+</div>
 
         <div className="text-sm text-center text-neutral-400 mt-6">
           Não tem uma conta?{' '}
           <Link href="/register" className="text-green-400 hover:underline">
             Crie uma agora
           </Link>
+      
         </div>
+      
       </div>
     </motion.div>
   )
