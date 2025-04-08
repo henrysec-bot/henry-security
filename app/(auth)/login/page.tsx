@@ -1,76 +1,82 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { motion } from 'framer-motion'
+import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
 import { useState } from 'react'
-import { FaGoogle } from 'react-icons/fa'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Autenticação será implementada futuramente
-    console.log({ email, password })
-  }
-
   return (
-    <main className="min-h-screen flex items-center justify-center bg-neutral-950 text-white px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-md bg-neutral-900 border border-neutral-800 rounded-xl p-8 shadow-neon"
-      >
-        <h1 className="text-2xl font-bold mb-6 text-neon-green text-center">Entrar no Henry Security</h1>
-        
-        <form onSubmit={handleLogin} className="space-y-4">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="min-h-screen flex items-center justify-center bg-black text-white px-4"
+    >
+      <div className="w-full max-w-md border border-green-400/30 rounded-xl p-8 shadow-lg bg-neutral-900/60 backdrop-blur-lg">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-3xl font-bold text-green-400 mb-6 text-center"
+        >
+          Acesse sua conta
+        </motion.h1>
+
+        <div className="space-y-4">
           <div>
-            <label className="block text-sm mb-1">Email</label>
-            <input
+            <Label htmlFor="email" className="text-white">E-mail</Label>
+            <Input
+              id="email"
               type="email"
-              className="w-full px-4 py-2 rounded bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-neon-green"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm mb-1">Senha</label>
-            <input
-              type="password"
-              className="w-full px-4 py-2 rounded bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-neon-green"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              placeholder="seu@email.com"
+              className="mt-1 bg-black border-green-400/30 focus:border-green-400 text-white"
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full py-2 rounded bg-neon-green text-black font-semibold hover:bg-green-400 transition-colors"
+          <div>
+            <Label htmlFor="password" className="text-white">Senha</Label>
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              className="mt-1 bg-black border-green-400/30 focus:border-green-400 text-white"
+            />
+          </div>
+
+          <Button
+            className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold shadow-green-500/40 shadow-md transition-all"
           >
             Entrar
-          </button>
-        </form>
+          </Button>
 
-        <div className="my-4 text-center text-sm text-neutral-500">ou</div>
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full flex items-center justify-center gap-2"
+          >
+            <FcGoogle size={20} />
+            Entrar com Google
+          </Button>
+        </div>
 
-        <button
-          className="w-full flex items-center justify-center gap-2 py-2 border border-neutral-700 rounded hover:bg-neutral-800 transition"
-          onClick={() => alert('Google login ainda será integrado')}
-        >
-          <FaGoogle /> Entrar com Google
-        </button>
-
-        <p className="mt-4 text-sm text-center text-neutral-500">
-          Ainda não tem conta?{' '}
-          <Link href="/register" className="text-neon-green hover:underline">
-            Criar conta
+        <div className="text-sm text-center text-neutral-400 mt-6">
+          Não tem uma conta?{' '}
+          <Link href="/register" className="text-green-400 hover:underline">
+            Crie uma agora
           </Link>
-        </p>
-      </motion.div>
-    </main>
+        </div>
+      </div>
+    </motion.div>
   )
 }
