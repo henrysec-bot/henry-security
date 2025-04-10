@@ -64,6 +64,9 @@ export default function Header() {
           <Link href="#pricing" onClick={() => setOpen(false)} className="block hover:text-white">Planos</Link>
           <Link href="#about" onClick={() => setOpen(false)} className="block hover:text-white">Sobre</Link>
           <Link href="#contact" onClick={() => setOpen(false)} className="block hover:text-white">Contato</Link>
+          <Link
+  href="/login"
+  className="text-sm font-semibold text-neon-green hover:text-white transition-colors duration-200">Entrar</Link>
         </motion.nav>
       )}
     </motion.header>
