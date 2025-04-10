@@ -29,11 +29,11 @@ export default function LoginPage() {
   }
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="min-h-screen flex items-center justify-center bg-black text-white px-4"
+      className="pt-24 md:pt-0 min-h-screen flex items-center justify-center bg-black text-white px-4"
     >
       <div className="w-full max-w-md border border-green-400/30 rounded-xl p-8 shadow-lg bg-neutral-900/60 backdrop-blur-lg">
         <motion.h1
@@ -99,21 +99,20 @@ export default function LoginPage() {
             Entrar com Google
           </Button>
         </div>
-        <div className="text-sm text-center text-neutral-400">
-  <Link href="/forgot-password" className="text-green-400 hover:underline">
-    Esqueceu sua senha?
-  </Link>
-</div>
+
+        <div className="text-sm text-center text-neutral-400 mt-4">
+          <Link href="/forgot-password" className="text-green-400 hover:underline">
+            Esqueceu sua senha?
+          </Link>
+        </div>
 
         <div className="text-sm text-center text-neutral-400 mt-6">
           Não tem uma conta?{' '}
           <Link href="/register" className="text-green-400 hover:underline">
             Crie uma agora
           </Link>
-      
         </div>
-      
       </div>
-    </motion.div>
+    </motion.section> // ← Fechamento correto da section
   )
 }

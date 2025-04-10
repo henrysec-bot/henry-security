@@ -5,7 +5,7 @@ import { ArrowRight, PlayCircle } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative h-[100vh] flex flex-col justify-center items-center text-center px-6">
+    <section className="pt-24 relative h-[100vh] flex flex-col justify-center items-center text-center px-6">
       {/* Background Parallax Glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#00ff99]/10 via-[#00c3ff]/10 to-transparent blur-[120px] animate-pulse opacity-40" />
