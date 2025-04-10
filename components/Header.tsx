@@ -53,22 +53,35 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <motion.nav
-          initial={{ height: 0 }}
-          animate={{ height: 'auto' }}
-          exit={{ height: 0 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden bg-black/80 px-6 py-4 text-sm text-gray-300 space-y-4"
-        >
-          <Link href="#features" onClick={() => setOpen(false)} className="block hover:text-white">Funcionalidades</Link>
-          <Link href="#pricing" onClick={() => setOpen(false)} className="block hover:text-white">Planos</Link>
-          <Link href="#about" onClick={() => setOpen(false)} className="block hover:text-white">Sobre</Link>
-          <Link href="#contact" onClick={() => setOpen(false)} className="block hover:text-white">Contato</Link>
-          <Link
-  href="/login"
-  className="text-sm font-semibold text-neon-green hover:text-white transition-colors duration-200">Entrar</Link>
-        </motion.nav>
-      )}
+  <motion.nav
+    initial={{ height: 0 }}
+    animate={{ height: 'auto' }}
+    exit={{ height: 0 }}
+    transition={{ duration: 0.3 }}
+    className="md:hidden bg-black/80 px-6 py-4 text-sm text-gray-300"
+  >
+    <Link href="#features" onClick={() => setOpen(false)} className="block hover:text-white mb-4">
+      Funcionalidades
+    </Link>
+    <Link href="#pricing" onClick={() => setOpen(false)} className="block hover:text-white mb-4">
+      Planos
+    </Link>
+    <Link href="#about" onClick={() => setOpen(false)} className="block hover:text-white mb-4">
+      Sobre
+    </Link>
+    <Link href="#contact" onClick={() => setOpen(false)} className="block hover:text-white mb-4">
+      Contato
+    </Link>
+    <Link
+      href="/login"
+      onClick={() => setOpen(false)}
+      className="block text-sm font-semibold text-neon-green hover:text-white transition-colors duration-200 mt-4"
+    >
+      Entrar
+    </Link>
+  </motion.nav>
+)}
+
     </motion.header>
   )
 }

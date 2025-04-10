@@ -3,6 +3,7 @@
 import './styles/globals.css'
 import { Toaster } from 'sonner'
 import Header from '@/components/Header'
+import { Footer } from '@/components/Footer'
 import { usePathname } from 'next/navigation'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -11,9 +12,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="pt-BR">
-      <body className="bg-black text-white">
-        {showHeader && <Header />}
-        {children}
+      <body className="text-white bg-black">
+        <div className="flex flex-col min-h-screen">
+          {showHeader && <Header />}
+          <main className="flex-1">
+            {children}
+          </main>
+          {showHeader && <Footer />}
+        </div>
         <Toaster position="top-center" richColors />
       </body>
     </html>
